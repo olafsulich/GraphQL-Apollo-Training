@@ -2,21 +2,26 @@ import React from "react";
 import "./App.css";
 import Wrapper from "../Wrapper/Wrapper";
 import Card from "../Card/Card";
+import { gql, useQuery } from "@apollo/client";
+
+const testQuery = gql`
+  {
+    characters {
+      results {
+        name
+        id
+      }
+    }
+  }
+`;
+
 function App() {
+  const { data } = useQuery(testQuery);
+  console.log(data);
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Rick and Morty</h1>
         <Wrapper>
           <Card />
           <Card />
