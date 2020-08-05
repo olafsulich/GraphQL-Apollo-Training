@@ -1,30 +1,27 @@
 import React from "react";
 import styles from "./Card.module.scss";
-const Card = () => {
+import { Link } from "react-router-dom";
+const Card = ({ name, image, status, location, origin, id }) => {
   return (
     <article className={styles.wrapper}>
       <div className={styles.imageWrapper}>
-        <img
-          className={styles.image}
-          src="https://rickandmortyapi.com/api/character/avatar/131.jpeg"
-          alt="Character"
-        />
+        <img className={styles.image} src={image} alt="Character" />
       </div>
       <div className={styles.textWrapper}>
         <div className={styles.textSection}>
-          <a href="/" className={styles.link}>
-            <h2 className={styles.heading}>Gar Gloonch</h2>
-          </a>
+          <Link to={`/${id}`} className={styles.link}>
+            <h2 className={styles.heading}>{name}</h2>
+          </Link>
           <p className={styles.status}>
             <span className={styles.statusIcon} />
-            Dead
+            {status}
           </p>
         </div>
 
         <div className={styles.textSection}>
           <h4 className={styles.textGray}>Last known location:</h4>
           <a href="/" className={styles.link}>
-            Nuptia 4
+            {location}
           </a>
         </div>
         <div className={styles.textSection}>
