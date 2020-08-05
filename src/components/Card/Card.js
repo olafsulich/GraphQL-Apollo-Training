@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Card.module.scss";
 import { Link } from "react-router-dom";
+
 const Card = ({ name, image, status, location, origin, id }) => {
   return (
     <article className={styles.wrapper}>
@@ -27,7 +28,7 @@ const Card = ({ name, image, status, location, origin, id }) => {
         <div className={styles.textSection}>
           <h4 className={styles.textGray}>First seen in:</h4>
           <a href="/" className={styles.link}>
-            Nuptia 4
+            {origin}
           </a>
         </div>
       </div>
