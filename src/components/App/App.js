@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-
+import Wrapper from "../Wrapper/Wrapper";
+import Card from "../Card/Card";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,12 @@ function App() {
         >
           Learn React
         </a>
+        <Wrapper>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </Wrapper>
       </header>
     </div>
   );
