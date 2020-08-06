@@ -2,4 +2,6 @@
 
 Created especially for blog post about Apollo on **Frontlive.pl**.
 
-![App preview](https://i.ibb.co/VxnNSNt/Apollo-app.png)
+<p align="center">
+<img src="https://i.ibb.co/VxnNSNt/Apollo-app.png"  alt="App preview">
+</p>
