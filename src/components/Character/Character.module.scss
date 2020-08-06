@@ -20,3 +20,19 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.button {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 1rem 2rem;
+  height: 3rem;
+  border-radius: 7px;
+  border: 2px solid #3c3e44;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  cursor: pointer;
+  color: #ffffff;
+  margin: 2rem auto;
+}

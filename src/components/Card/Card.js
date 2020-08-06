@@ -21,15 +21,15 @@ const Card = ({ name, image, status, location, origin, id }) => {
 
         <div className={styles.textSection}>
           <h4 className={styles.textGray}>Last known location:</h4>
-          <a href="/" className={styles.link}>
+          <Link href="/" className={styles.link}>
             {location}
-          </a>
+          </Link>
         </div>
         <div className={styles.textSection}>
           <h4 className={styles.textGray}>First seen in:</h4>
-          <a href="/" className={styles.link}>
+          <Link href="/" className={styles.link}>
             {origin}
-          </a>
+          </Link>
         </div>
       </div>
     </article>

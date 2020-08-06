@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import Card from "../Card/Card";
 import { gql, useQuery } from "@apollo/client";
 import styles from "./Home.module.scss";
 
-const testQuery = gql`
-  {
-    characters {
+const GET_CHARACTERS = gql`
+  query getCharacters($page: Int) {
+    characters(page: $page) {
       results {
         name
         id
@@ -24,11 +24,39 @@ const testQuery = gql`
 `;
 
 const Home = () => {
-  const { data, loading } = useQuery(testQuery);
+  const [page, setPage] = useState(1);
+  const { data, loading, fetchMore } = useQuery(GET_CHARACTERS, {
+    variables: { page: page },
+  });
+
+  const handleIncrement = () => setPage((prevState) => prevState + 1);
+
+  const loadMoreCharacters = () => {
+    fetchMore({
+      variables: {
+        page: page + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult) return prev;
+        const newCharacters = Object.assign({}, prev, {
+          characters: {
+            ...prev.characters,
+            ...fetchMoreResult.characters,
+          },
+        });
+        return newCharacters;
+      },
+    });
+    handleIncrement();
+  };
+
   return (
     <div className={styles.appWrapper}>
       <section className={styles.app}>
         <h1>Rick and Morty</h1>
+        <button className={styles.button} onClick={loadMoreCharacters}>
+          Next page
+        </button>
         <Wrapper>
           {loading ? (
             <p>loading...</p>
